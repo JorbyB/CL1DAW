@@ -1,0 +1,9 @@
+package org.cibertec.edu.pe.InterfacesService;
+
+public interface IProductosService {
+	
+	public List<Producto> Listar();
+	public Optional<Colaboradores> Buscar(String Id);
+	public int Grabar(Colaboradores ObjC);
+	public void Suprimir(String Id);
+}

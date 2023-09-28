@@ -1,0 +1,29 @@
+package org.cibertec.edu.pe.Controller;
+
+import org.cibertec.edu.pe.Interfaces.IProductos;
+import org.cibertec.edu.pe.InterfacesService.IProductosService;
+import org.cibertec.edu.pe.Modelo.Productos;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import java.util.List;
+
+@Controller
+@RequestMapping
+public class ProductoController {
+	
+	@Autowired
+	private IProductosService servicio;
+	
+	
+	// Método para Listar
+	@GetMapping("/listar")	// http://localhost:8080/listar
+	public String Listado(Model m) {
+		List<Productos> lista = servicio.Listar();
+		m.addAttribute("producto", lista);
+		return "listado";	// listado.html
+	}
+	
+}
